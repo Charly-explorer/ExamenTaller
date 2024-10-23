@@ -45,8 +45,8 @@ public class GestorMantenimiento implements IGestorMantenimiento<ServicioManteni
     @Override
     public Vehiculo BuscarVehiculoCliente(String id) {
         for (ServicioMantenimiento v1 : servicios) {
-            if (v1.getVehiculo().getCliente().getId == id){
-                return v1;
+            if (v1.getVehiculo().getCliente().getId() == id){
+                return v1.getVehiculo();
             }
         }
         return null;

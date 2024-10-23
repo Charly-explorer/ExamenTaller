@@ -8,14 +8,12 @@ package Model;
  *
  * @author Student
  */
-public abstract class StadoServicio {
-    protected EstadoServicio estado;
+public class EstadoCompletado implements State {
 
-    public StadoServicio(EstadoServicio estado) {
-        this.estado = estado;
+    @Override
+    public void estado() {
+        System.out.println("El carro se encuentra completado");
+
     }
     
-    public void enEspera(){}
-    public void enProceso(){}
-    public void completado(){}
 }

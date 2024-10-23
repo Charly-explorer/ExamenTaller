@@ -8,12 +8,11 @@ package Model;
  *
  * @author Student
  */
-public class EstadoEspera extends StadoServicio{
-    
+public class EstadoEnespera implements State{
+
     @Override
-    public void enEspera(){
-        if(estado.equals(estado.EnEspera)){
-            
-        }
+    public void estado() {
+        System.out.println("El carro esta en espera");
     }
+    
 }

@@ -1,33 +1,37 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Model;
 
-/**
- *
- * @author Student
- */
+
 public class ServicioMantenimiento {
-    String tipoServicio;
-    EstadoServicio estado;
+    private Vehiculo vehiculo;
+    private String tipoServicio;
+    private Estado estado;
+
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
 
     public String getTipoServicio() {
         return tipoServicio;
     }
 
-    public EstadoServicio getEstado() {
+    public Estado getEstado() {
         return estado;
     }
-    
-    public void setEstado(EstadoServicio estado) {
-        this.estado = estado;
+
+    public void setTipoServicio(String tipoServicio) {
+        this.tipoServicio = tipoServicio;
     }
 
-    public ServicioMantenimiento(String tipoServicio) {
-        this.tipoServicio = tipoServicio;
-        this.estado = EstadoServicio.EnEspera;
-    }
+//    public void setEstado(Estado estado) {
+//        estado;
+//    }
+//
+//    public ServicioMantenimiento(Vehiculo vehiculo, String tipoServicio) {
+//        this.vehiculo = vehiculo;
+//        this.tipoServicio = tipoServicio;
+//        this.estado = new Contexto();
+//    }
     
 
     @Override

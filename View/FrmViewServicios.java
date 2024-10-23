@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Student
  */
-public class FrmViewServicios extends javax.swing.JInternalFrame {
+public class FrmViewServicios extends javax.swing.JInternalFrame implements IView {
     DefaultTableModel model;
     GestorMantenimiento Mantenimiento;
     /**
@@ -147,4 +147,14 @@ public class FrmViewServicios extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void cargarList() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void cambiarEstado() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

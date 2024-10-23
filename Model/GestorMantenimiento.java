@@ -14,9 +14,9 @@ public class GestorMantenimiento {
 
     private ArrayList<ServicioMantenimiento> servicios;
 
-    private GestorMantenimiento instance;
+    public GestorMantenimiento instance;
 
-    private GestorMantenimiento() {
+    public GestorMantenimiento() {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException ex) {
@@ -25,7 +25,7 @@ public class GestorMantenimiento {
         this.servicios = new ArrayList<>();
     }
 
-    public synchronized GestorMantenimiento getInstance() {
+    public GestorMantenimiento getInstance() {
         if (instance == null) {
             instance = new GestorMantenimiento();
         }
@@ -45,6 +45,13 @@ public class GestorMantenimiento {
             if (v1.getVehiculo().getCliente().getId == id){
                 return v1;
             }
+        }
+        return null;
+    }
+    public ArrayList<Vehiculo> RetornarVehiculos(String id) {
+        ArrayList<Vehiculo> vehiculos = new ArrayList<>();
+        for (ServicioMantenimiento v1 : servicios) {
+            vehiculos.add(v1.getVehiculo());
         }
         return null;
     }

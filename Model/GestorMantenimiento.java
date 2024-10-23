@@ -12,41 +12,56 @@ import java.util.ArrayList;
  */
 public class GestorMantenimiento {
 
-    private ArrayList<Vehiculo> vehiculos;
+    private ArrayList<ServicioMantenimiento> servicios;
 
-    private GestorMantenimiento instance;
+    public GestorMantenimiento instance;
 
-    private GestorMantenimiento() {
+    public GestorMantenimiento() {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         }
-        this.vehiculos = new ArrayList<>();
+        this.servicios = new ArrayList<>();
     }
 
-    public synchronized GestorMantenimiento getInstance() {
+    public GestorMantenimiento getInstance() {
         if (instance == null) {
             instance = new GestorMantenimiento();
         }
         return instance;
     }
-
-    public void Agregar(Vehiculo vehiculo) {
-        vehiculos.add(vehiculo);
+    
+    public void Agregar(ServicioMantenimiento servicio) {
+        servicios.add(servicio);
     }
 
-    public void Eliminar(Vehiculo vehiculo) {
-        vehiculos.remove(vehiculo);
+    public void Eliminar(ServicioMantenimiento servicio) {
+        servicios.remove(servicio);
     }
 
-    public Vehiculo Buscar(String id) {
-        for (Vehiculo v1 : vehiculos) {
-            if (v1.getCliente().getId() == id) {
+    public Vehiculo BuscarVehiculoCliente(String id) {
+        for (ServicioMantenimiento v1 : servicios) {
+            if (v1.getVehiculo().getCliente().getId == id){
                 return v1;
             }
         }
         return null;
+    }
+    public ArrayList<Vehiculo> RetornarVehiculos(String id) {
+        ArrayList<Vehiculo> vehiculos = new ArrayList<>();
+        for (ServicioMantenimiento v1 : servicios) {
+            vehiculos.add(v1.getVehiculo());
+        }
+        return null;
+    }
+    
+    public int ContadorServicios(){
+        int cont = 0;
+        for (ServicioMantenimiento v1 : servicios){
+            cont =+ 1;
+        }
+        return cont;
     }
     
 }

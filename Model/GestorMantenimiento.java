@@ -11,41 +11,42 @@ import java.util.ArrayList;
  * @author Student
  */
 public class GestorMantenimiento {
-    
-    private ArrayList<vehiculo> vehiculos; 
-    
+
+    private ArrayList<Vehiculo> vehiculos;
+
     private GestorMantenimiento instance;
 
     private GestorMantenimiento() {
-        try{
+        try {
             Thread.sleep(1000);
-        }catch(InterruptedException ex){
+        } catch (InterruptedException ex) {
             ex.printStackTrace();
         }
         this.vehiculos = new ArrayList<>();
     }
-    
-    public synchronized GestorMantenimiento getInstance(){
-        if(instance == null){
+
+    public synchronized GestorMantenimiento getInstance() {
+        if (instance == null) {
             instance = new GestorMantenimiento();
         }
         return instance;
-        
     }
-    
-    public static void Agregar(vehiculo vehiculo){
-        vehiculos.add(vehiculo)
+
+    public void Agregar(Vehiculo vehiculo) {
+        vehiculos.add(vehiculo);
     }
-    public static void Eliminar(vehiculo vehiculo){
+
+    public void Eliminar(Vehiculo vehiculo) {
         vehiculos.remove(vehiculo);
     }
-    public static void Buscar(int id){
-        for(vehiculo v1 : vehiculos){
-            if(v1.cliente.getId == vehiculo.cliente.getId){
+
+    public Vehiculo Buscar(String id) {
+        for (Vehiculo v1 : vehiculos) {
+            if (v1.getCliente().getId() == id) {
                 return v1;
             }
         }
+        return null;
     }
-    
     
 }

@@ -7,19 +7,22 @@ package View;
 import Model.ServicioMantenimiento;
 import Model.Vehiculo;
 import javax.swing.table.DefaultTableModel;
+import Model.GestorMantenimiento;
 
 /**
  *
  * @author Student
  */
-public class FrmViewVehiculo extends javax.swing.JInternalFrame {
+public class FrmViewVehiculo extends javax.swing.JInternalFrame implements IView {
+
     DefaultTableModel model;
+
     /**
      * Creates new form FrmViewVehiculo
      */
     public FrmViewVehiculo() {
         initComponents();
-        model= new DefaultTableModel();
+        model = new DefaultTableModel();
         model.addColumn("Marca");
         model.addColumn("Modelo");
         model.addColumn("Matricula");
@@ -129,11 +132,6 @@ public class FrmViewVehiculo extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-    
-    public void cargarTabla(Vehiculo veh, ServicioMantenimiento mant){
-        model.addRow(new Object[]{});
-        this.Table.setModel(model);
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Table;
@@ -142,4 +140,17 @@ public class FrmViewVehiculo extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void cargarList() {
+        for (int i = 0; i < 10; i++) {
+            model.addRow(new Object[]{});
+            this.Table.setModel(model);
+        }
+    }
+
+    @Override
+    public void cambiarEstado() {
+        
+    }
 }

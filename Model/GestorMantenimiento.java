@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author Student
  */
-public class GestorMantenimiento {
+public class GestorMantenimiento implements IGestorMantenimiento<ServicioMantenimiento>{
 
     private ArrayList<ServicioMantenimiento> servicios;
 
@@ -32,14 +32,17 @@ public class GestorMantenimiento {
         return instance;
     }
     
+    @Override
     public void Agregar(ServicioMantenimiento servicio) {
         servicios.add(servicio);
     }
 
+    @Override
     public void Eliminar(ServicioMantenimiento servicio) {
         servicios.remove(servicio);
     }
 
+    @Override
     public Vehiculo BuscarVehiculoCliente(String id) {
         for (ServicioMantenimiento v1 : servicios) {
             if (v1.getVehiculo().getCliente().getId == id){
@@ -49,6 +52,7 @@ public class GestorMantenimiento {
         return null;
     }
     
+    @Override
     public int ContadorServicios(){
         int cont = 0;
         for (ServicioMantenimiento v1 : servicios){
